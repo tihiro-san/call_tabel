@@ -1,24 +1,44 @@
-# README
+# call table
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+### サイトテーマ
+検索が容易で履歴がわかる連絡先登録サイト(営業コール表)
 
-* Ruby version
+### テーマを選んだ理由
 
-* System dependencies
+前職の経験からフォーマットが崩れず、履歴がわかりやすい便利な連絡先のリストが欲しいと考えこのテーマを選びました。
 
-* Configuration
+前職の営業で新規コールをかける際に使っていたリストがエクセルで作られていたものでした。
+かなり古いデータのものを使っており順次更新をしていかねばならず、
+前任の担当者が掛けた履歴や連絡先が間違っていたり、データが壊れていたり様々な問題が発生しており編集するのに時間が掛かった経験があり、
+そういったことのない管理用のツールを作りたいと考えていました。
 
-* Database creation
+また、問題点の解決だけでなくランク付けや検索機能など、自分が営業をしていた中でほしいと思った
+機能も追加してより使いやすいツールが作りたいとの考えがあったのも理由の一つです。
 
-* Database initialization
+このツールを使うことによって少しでもコール掛けの業務の効率化ができればと考えております。
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### ターゲットユーザー
 
-* Deployment instructions
+連絡先の情報・連絡履歴を管理しておきたいという方
 
-* ...
+### 主な利用シーン
+
+特定の連絡先を登録して、連絡に利用する場合。また、その履歴を残しておきたい時
+
+
+## 設計書
+<...>
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
