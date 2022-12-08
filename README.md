@@ -39,7 +39,7 @@
 
 ![管理者側](https://user-images.githubusercontent.com/112619522/206130585-2defe29b-2aec-4600-bc35-fd0a72f09944.png)
 
-![ER図 drawio](https://user-images.githubusercontent.com/112619522/206131443-827468b0-cf09-4afe-a81f-c12d0d3b855e.png)
+![ER図 drawio](https://user-images.githubusercontent.com/112619522/206386703-7629a801-136e-426e-9790-0895eb3c599a.png)
 
 ## 開発環境
 - OS：Linux(CentOS)
