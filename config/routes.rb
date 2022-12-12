@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   # 顧客用
-# URL /customers/sign_in ...
-  devise_for :users, [:registrations, :passwords] ,controllers: {
+  # URL /customers/sign_in ...
+  devise_for :users, skip: [:registrations, :passwords] , controllers: {
     sessions: "public/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
