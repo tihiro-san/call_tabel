@@ -21,9 +21,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :contacts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :contacts
     resources :valuations, only: [:index, :create, :edit, :update]
-    resources :users, only: [:index, :show, :edit, :new, :create, :update]#管理者側のみでユーザーの登録を行いたいため修正予定
+    resources :users, only: [:index, :show, :edit, :create, :update]#管理者側のみでユーザーの登録を行いたいため修正予定
+    get "users/sign_up" => "users#new"
   end
 
 end
