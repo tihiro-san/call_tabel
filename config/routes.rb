@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'contact_managers/create'
   root to: "public/homes#top"
   get 'about'=>'public/homes#about'
   # 管理者用
@@ -17,11 +18,13 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :contacts, only: [:index, :show, :edit, :update, :new, :create]
     resources :call_histories, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :contact_managers, only: [:create]
   end
 
   namespace :admin do
     root to: 'homes#top'
     resources :contacts
+    resources :contact_managers, only: [:create]
     resources :valuations, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :create, :update]#管理者側のみでユーザーの登録を行いたいため修正予定
     get "users/sign_up" => "users#new"
