@@ -10,7 +10,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex-column vh-100 pb-5">
+    <!--ヘッダーの部分テンプレート-->
+    <%= render 'layouts/header' %>
+    <!--フラッシュメッセージの表示-->
+    <p class="notice text-center mt-3"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <!--コンテンツ-->
     <%= yield %>
+
+    <!--フッターの部分テンプレート-->
+    <%= render 'layouts/footer' %>
   </body>
 </html>
