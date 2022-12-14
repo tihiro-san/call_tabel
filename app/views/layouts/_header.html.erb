@@ -7,3 +7,86 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        
+         <% if user_signed_in? %><!--ユーザー-->
+         <p class="ml-1" style="color:#e7e7e7; text-left">おはようございます、<%= current_user.last_name %>さん</p>
+         
+          <ul class="navbar-nav ml-auto">
+            
+            <li>
+            　<%=  link_to contacts_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"><i class="fas fa-birthday-cake"></i> 連絡先一覧</p>
+              <% end %>
+            </li>
+            <li>
+            　<%=  link_to call_histories_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"><i class="fas fa-birthday-cake"></i> コール履歴一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"><i class="fas fa-sign-out-alt"></i> ログアウト</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"><i class="fas fa-info-circle"></i> ユーザー一覧</p>
+              <% end %>
+            </li>
+            
+          </ul>
+         <% elsif admin_signed_in? %><!--管理者-->
+          <ul class="navbar-nav ml-auto">
+            <li>
+              <%= link_to admin_users_sign_up_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">新規ユーザー登録</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_valuations_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">見込みランク一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_contacts_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">連絡先一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%=  link_to admin_call_histories,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">コール履歴一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%=  link_to admin_users_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">ユーザー一覧</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;">ログアウト</p>
+              <% end %>
+            </li>
+          </ul>
+         <% else %><!--ログインしていない場合-->
+          <ul class="navbar-nav ml-auto">
+             <li>
+              <%= link_to root_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"></i>Home</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to about_path,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"></i>About app</p>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path ,class: 'nav-link text-nowrap text-light' do %>
+                <p style="color:#e7e7e7;"><i class="fas fa-sign-in-alt"></i>Log in</p>
+              <% end %>
+            </li>
+          </ul>
+        <% end %>
+
+      </div>
