@@ -1,2 +1,106 @@
-<h1>Admin::Users#new</h1>
-<p>Find me in app/views/admin/users/new.html.erb</p>
+<div class="container pb-5"></br>
+   <div class="col-12 mx-auto">
+     <h3>新規会員登録</h3>
+   </div>
+
+   </br>
+   </br>
+
+    <%= form_with model: @user, url: admin_users_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+    <%= render "public/shared/error_messages", resource: @user %>
+
+
+      <div class="row">
+        <label class="col-sm-3">名前</label>
+          <div class="col-sm-9">
+           <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder:"電話氏" %>
+           <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder:"太郎" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3">フリガナ</label>
+          <div class="col-sm-9">
+             <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_kana", placeholder:"デンワシ" %>
+             <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_kana", placeholder:"タロウ" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3">メールアドレス</label>
+          <div class="col-sm-9">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3">所属</label>
+          <div class="col-sm-9">
+            <%= f.text_field :department, autofocus: true, autocomplete: "department", placeholder:"営業部" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3">役職</label>
+          <div class="col-5">
+            <%= f.text_field :post, autofocus: true, autocomplete: "post", placeholder:"課長" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3">電話番号(ハイフンなし) </label>
+          <div class="col-sm-9">
+            <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder:"0000000000" %>
+          </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3 col-form-label"><%= f.label :password,'パスワード（６文字以上）' %></label>
+          <div class="col-sm-9">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %>文字以上で登録)</em>
+            <% end %><br />
+              <p>
+                 <%= f.password_field :password, autocomplete: "new-password" %>
+              </p>
+
+         </div>
+      </div>
+
+      </br>
+
+      <div class="row">
+        <label class="col-sm-3 "><%= f.label :password_confirmation,'パスワード（確認用）' %></label>
+          <div class="col-sm-9">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+      </div>
+
+      <div class="text-center my-5" >
+        <%= f.submit "新規登録", class: "btn btn-sm btn-outline-danger" %>
+      </div>
+
+
+
+
+     
+　　<%end%>
+
+
+        </br>
+        </br>
+
+
+</div>
