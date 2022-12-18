@@ -84,6 +84,13 @@
             <%= @contact.remarks %>
           </div>
       </div>
+      <div class="row">
+       <div class="col-6 text-left">
+        <%= link_to '連絡先の編集', edit_contact_path, class:"btn btn-sm btn-outline-danger" %>
+       </div>
       
+       <div class="col-6 text-right mb-5">
+        <%= link_to 'コールをかける', new_contact_call_history_path(@contact.id), class:"btn btn-sm btn-outline-danger" %>
+       </div>
     
 </div>

@@ -1,2 +1,103 @@
-<h1>Public::CallHistories#new</h1>
-<p>Find me in app/views/public/call_histories/new.html.erb</p>
+<div class="container pb-5"></br>
+  <div class="col-12 mx-auto">
+    <h3>新規コール</h3>
+  </div>
+
+   </br>
+   </br>
+
+  <div class="row">
+    <label class="col-sm-3">団体名</label>
+      <div class="col-sm-9">
+        <%= @contact.organization_name %>
+      </div>
+  </div>
+    
+  </br>
+
+  <div class="row">
+    <label class="col-sm-3">電話番号(ハイフンなし) </label>
+      <div class="col-sm-9">
+        <%= @contact.contact_number %>
+      </div>
+  </div>
+      
+  </br>
+  
+  <div class="row">
+    <label class="col-sm-3">郵便番号</label>
+      <div class="col-sm-9">
+        <%= @contact.contact_postcode %>
+      </div>
+  </div>
+      
+  </br>
+  
+  <div class="row">
+    <label class="col-sm-3">住所</label>
+      <div class="col-5">
+        <%= @contact.contact_address %>
+      </div>
+  </div>
+      
+  </br>
+
+  <div class="row">
+    <label class="col-sm-3">担当者役職</label>
+      <div class="col-sm-9">
+        <%= @contact.counterparty_post %>
+      </div>
+  </div>
+      
+  </br>
+
+  <div class="row">
+    <label class="col-sm-3">担当者名</label>
+      <div class="col-sm-9">
+        <%= @contact.counterparty_name %>
+      </div>
+  </div>
+      
+  </br>
+
+  <div class="row">
+    <label class="col-sm-3">従業員数</label>
+      <div class="col-sm-9">
+        <%= @contact.employees %>
+      </div>
+  </div>
+      
+  </br>
+
+  <div class="row">
+    <label class="col-sm-3">WebsiteのURL</label>
+      <div class="col-sm-9">
+        <%= @contact.website %>
+      </div>
+  </div>
+  
+  </br>
+    
+  <div class="row my-5">
+    <label class="col-sm-3">備考</label>
+      <div class="col-sm-9">
+        <%= @contact.remarks %>
+      </div>
+  </div>
+  
+  <div class="row my-5">
+  　<%= form_with model: @call_history, url: contact_call_histories_path, method: :post, local: true do |f| %>
+    <label class="col-6">コール内容</label>
+      <div class="col-6">
+        <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder:"", size:"90x5" %>
+      </div>
+      
+      <div class="text-right my-5" >
+        <%= f.submit "新規コール登録", class: "btn btn-sm btn-outline-danger" %>
+  　　</div>
+    <% end %>  
+  </div>
+  
+    
+ 
+</div>  

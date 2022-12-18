@@ -9,7 +9,7 @@
     <%= form_with model: @contact, url: contacts_path, method: :post, local: true do |f| %>
     
       <div class="row">
-        <label class="col-sm-3">団体</label>
+        <label class="col-sm-3">団体名</label>
           <div class="col-sm-9">
            <%= f.text_field :organization_name, autofocus: true, autocomplete: "organization_name", placeholder:"電話商事" %>
           </div>

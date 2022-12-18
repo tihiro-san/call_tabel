@@ -1,2 +1,100 @@
-<h1>Public::Contacts#edit</h1>
-<p>Find me in app/views/public/contacts/edit.html.erb</p>
+
+<div class="container pb-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <h4><strong><%= "#{@contact.organization_name}" %>連絡先情報編集</strong></h4>
+
+<%= form_with model: @contact, url: contact_path(@contact.id), method: :patch do |f| %>
+<div class="mt-4 shadow-lg px-5 py-5 mt-4">
+  <table class="table　table-borderless table-sm ml-5">
+  <div class="field">
+    <tr>
+    <div class="field">
+      <th>連絡先ID</th><td><%= @contact.id %></td>
+    </div>
+    </tr>
+  </div>
+
+  <div class="field">
+    <tr>
+      <th><%= f.label :"団体名" %></th>
+      <td><%= f.text_field :organization_name %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th><%= f.label :"電話番号" %></th>
+      <td><%= f.text_field :contact_number %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th><%= f.label :"郵便番号" %></th>
+      <td><%= f.text_field :contact_postcode %></td>
+    </tr>
+  </div>
+
+  <div class="field">
+    <tr>
+      <th><%= f.label :"住所" %></th>
+      <td><%= f.text_field :contact_address %></td>
+    </tr>
+  </div>
+
+  <div class="field">
+    <tr>
+      <th><%= f.label :"担当者役職" %></th>
+      <td><%= f.text_field :counterparty_post %></td>
+    </tr>
+  </div>
+
+  <div class="field">
+    <tr>
+      <th><%= f.label :"担当者名" %></th>
+      <td><%= f.text_field :counterparty_name %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th><%= f.label :"従業員数" %></th>
+      <td><%= f.text_field :employees %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th><%= f.label :"WebsiteのURL" %></th>
+      <td><%= f.text_field :website %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th><%= f.label :"備考" %></th>
+      <td><%= f.text_field :remarks %></td>
+    </tr>
+  </div>
+  
+  <div class="field">
+    <tr>
+      <th></th>
+      <label>
+        <td><%= f.radio_button :is_deleted, :false %><%= f.label :is_deleted_false,"有効" %>
+        </td>
+        <td><%= f.radio_button :is_deleted, :true %><%= f.label :is_deleted_true,"無効" %>
+        </td>
+      </label>
+    </tr>
+  </div>
+  </table>
+</div>
+  <div class="actions mt-3 text-center">
+    <%= f.submit "変更を保存", class: "btn btn-outline-danger mt-2" %>
+  </div>
+<% end %>
+　　</div>
+　</div>
+</div>
