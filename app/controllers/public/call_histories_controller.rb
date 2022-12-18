@@ -21,8 +21,10 @@ class Public::CallHistoriesController < ApplicationController
      #@call_history.contact_id = @contact.id
      #@call_history.user_id = current_user.id
      if @call_history.save
+       flash[:notice] = "コール履歴が登録されました"
        redirect_to contact_call_history_path(@call_history.id)
      else
+       flash[:notice] = "コール履歴を登録できませんでした"
        render 'new'
      end
   end
