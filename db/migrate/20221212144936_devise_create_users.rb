@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :first_name_kana,null: false
       t.string :department,null: false
       t.string :post,null: false
+      t.integer :authority, default:0,null:false,limit:1
       t.string :phone_number,null: false
       t.boolean :is_deleted,null: false,default: false
       

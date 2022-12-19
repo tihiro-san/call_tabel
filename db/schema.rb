@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
     t.string "contact_number", null: false
     t.string "contact_postcode"
     t.string "contact_address"
-    t.integer "contact_status"
+    t.integer "contact_status", limit: 1, default: 0, null: false
     t.string "counterparty_post"
     t.string "counterparty_name"
     t.integer "employees"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
     t.string "first_name_kana", null: false
     t.string "department", null: false
     t.string "post", null: false
+    t.integer "authority", limit: 1, default: 0, null: false
     t.string "phone_number", null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
@@ -105,8 +106,8 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
   end
 
   create_table "valuatuons", force: :cascade do |t|
-    t.integer "grade", null: false
-    t.integer "rank_content", null: false
+    t.integer "grade", limit: 1, default: 0, null: false
+    t.string "rank_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
