@@ -86,10 +86,10 @@
   </div>
   
   <div class="row my-5">
-  　<%= form_with model: @call_history, url: contact_call_history_path(@call_history.id), method: :patch do |f| %>
-  　
-  　<!--日時登録-->
-  　
+   <%= form_with model: @call_history, url: contact_call_history_path(@call_history.contact_id, @call_history.id), method: :patch do |f| %>
+   
+  <!--日時登録-->
+  
     <label class="col-6">コール内容</label>
       <div class="col-6">
         <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder:"", size:"90x5" %>
@@ -97,7 +97,7 @@
       
       <div class="text-right my-5" >
         <%= f.submit "編集を保存", class: "btn btn-sm btn-outline-danger" %>
-  　　</div>
+      </div>
     <% end %>  
   </div>
   

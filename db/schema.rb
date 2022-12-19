@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
 
   create_table "call_histories", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "cintact_id", null: false
+    t.integer "contact_id", null: false
     t.integer "valuation_id"
     t.string "content"
     t.datetime "date_and_time"
