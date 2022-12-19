@@ -28,9 +28,9 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :users, only: [:index, :show]
     resources :contacts, only: [:index, :show, :edit, :update, :new, :create] do
-     resources :call_histories, only: [:new, :create, :show,]
+     resources :call_histories, only: [:new, :create, :show, :edit, :update]
     end
-    resources :call_histories, only: [:index, :edit, :update] 
+    resources :call_histories, only: [:index] 
     resources :contact_managers, only: [:create]
   end
 
