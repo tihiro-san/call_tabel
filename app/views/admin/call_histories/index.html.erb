@@ -14,11 +14,11 @@
       <% @call_histories.each do |call_history| %>
         <tbody>
           <tr>
-            <td><%= link_to "#{call_history.id}", edit_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+            <td><%= link_to "#{call_history.id}", admin_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
             <td>
-              <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
+              <%= link_to "#{call_history.contact.organization_name}", admin_contact_path(call_history.contact.id) %>
             </td>
-            <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
+            <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", admin_user_path(call_history.user.id) %></td>
 
             <td><%= call_history.date_and_time %></td>
           </tr>

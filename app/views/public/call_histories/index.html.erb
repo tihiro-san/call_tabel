@@ -14,7 +14,7 @@
       <% @call_histories.each do |call_history| %>
         <tbody>
           <tr>
-            <td><%= link_to "#{call_history.id}", edit_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+            <td><%= link_to "#{call_history.id}", contact_call_history_path(call_history.contact.id, call_history.id) %></td>
             <td>
               <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
             </td>

@@ -36,10 +36,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
-    resources :contacts
+    resources :contacts do
+      resources :call_histories, only: [:new, :create, :show, :edit, :update]
+    end
     resources :contact_managers, only: [:create]
     resources :valuations, only: [:index, :create, :edit, :update]
-    resources :call_histories, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :call_histories, only: [:index]
     resources :users, only: [:index, :show, :edit, :create, :update, :new] do
       collection do
         get :sign_up, action: :new
