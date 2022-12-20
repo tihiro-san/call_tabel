@@ -1,4 +1,7 @@
 class Admin::CallHistoriesController < ApplicationController
+  
+  before_action :authenticate_admin!
+  
   def index
     @call_histories = CallHistory.all
     

@@ -18,6 +18,13 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
+before_action :user_state, only: [:create]
+
+  def after_sign_in_path_for(resource)
+    # flash[:notice] = "Welcome! You have signed up successfully."
+    root_path
+  end
+  
   protected
   # 退会しているかを判断するメソッド
   def user_state
