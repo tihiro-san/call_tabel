@@ -14,9 +14,9 @@ class Admin::ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     if @contact.update(contact_params)
-      redirect_to contact_path(@contact)
+      redirect_to admin_contact_path(@contact)
     else
-      render edit_contact_path(@contact)
+      render edit_admin_contact_path(@contact)
     end
 
   end
@@ -28,7 +28,7 @@ class Admin::ContactsController < ApplicationController
   def create
     if @contact = Contact.create(contact_params)
       ContactManager.create(user_id: current_user.id, contact_id: @contact.id)
-      redirect_to contact_path(@contact)
+      redirect_to admin_contact_path(@contact)
     else
       render 'new'
     end
