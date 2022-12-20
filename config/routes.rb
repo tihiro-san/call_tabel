@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :contacts do
-      resources :call_histories, only: [:new, :create, :show, :edit, :update]
+      resources :call_histories, only: [:show, :edit, :update]
     end
     resources :contact_managers, only: [:create]
     resources :valuations, only: [:index, :create, :edit, :update]
