@@ -1,2 +1,29 @@
-<h1>Admin::CallHistories#index</h1>
-<p>Find me in app/views/admin/call_histories/index.html.erb</p>
+<div class="row pb-5">
+  <div class="col-8 mx-auto">
+    <h4><strong>コール履歴一覧</strong></h4>
+
+    <table class="table shadow-lg mt-4">
+        <thead class="table-active">
+          <tr>
+            <th>コール履歴ID</th>
+            <th>団体名</th>
+            <th>ユーザー名</th>
+            <th>日時</th>
+          </tr>
+        </thead>
+      <% @call_histories.each do |call_history| %>
+        <tbody>
+          <tr>
+            <td><%= link_to "#{call_history.id}", edit_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+            <td>
+              <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
+            </td>
+            <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
+
+            <td><%= call_history.date_and_time %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
