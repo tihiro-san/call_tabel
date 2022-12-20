@@ -27,7 +27,7 @@ class Admin::ContactsController < ApplicationController
 
   def create
     if @contact = Contact.create(contact_params)
-      ContactManager.create(user_id: current_user.id, contact_id: @contact.id)
+      
       redirect_to admin_contact_path(@contact)
     else
       render 'new'

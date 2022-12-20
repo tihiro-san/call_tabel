@@ -1,2 +1,99 @@
-<h1>Admin::Contacts#new</h1>
-<p>Find me in app/views/admin/contacts/new.html.erb</p>
+<div class="container pb-5"></br>
+   <div class="col-12 mx-auto">
+     <h3>新規連絡先</h3>
+   </div>
+
+   </br>
+   </br>
+
+    <%= form_with model: @contact, url: admin_contacts_path, method: :post, local: true do |f| %>
+    
+      <div class="row">
+        <label class="col-sm-3">団体名</label>
+          <div class="col-sm-9">
+           <%= f.text_field :organization_name, autofocus: true, autocomplete: "organization_name", placeholder:"電話商事" %>
+          </div>
+      </div>
+    
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">電話番号(ハイフンなし) </label>
+          <div class="col-sm-9">
+            <%= f.text_field :contact_number, autofocus: true, autocomplete: "contact_number", placeholder:"0000000000" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">郵便番号</label>
+          <div class="col-sm-9">
+            <%= f.text_field :contact_postcode, autofocus: true, autocomplete: "contact_postcode", placeholder:"000000" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">住所</label>
+          <div class="col-5">
+            <%= f.text_field :contact_address, autofocus: true, autocomplete: "contact_address", placeholder:"東京都", class:"form-control" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">担当者役職</label></label>
+          <div class="col-sm-9">
+            <%= f.text_field :counterparty_post, autofocus: true, autocomplete: "counterparty_post", placeholder:"システム開発部・部長" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">担当者名</label></label>
+          <div class="col-sm-9">
+            <%= f.text_field :counterparty_name, autofocus: true, autocomplete: "counterparty_name", placeholder:"伝田" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">従業員数</label></label>
+          <div class="col-sm-9">
+            <%= f.text_field :employees, autofocus: true, autocomplete: "employees", placeholder:"100名" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">WebsiteのURL</label></label>
+          <div class="col-sm-9">
+            <%= f.text_field :website, autofocus: true, autocomplete: "website", placeholder:"" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">備考</label></label>
+          <div class="col-sm-9">
+            <%= f.text_field :remarks, autofocus: true, autocomplete: "remarks", placeholder:"" %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="text-center my-5" >
+        <%= f.submit "新規登録", class: "btn btn-sm btn-outline-danger" %>
+      </div>
+      
+    <%end%>
+    </br>
+    </br>
+</div>
