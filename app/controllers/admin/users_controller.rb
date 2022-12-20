@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   
   
   def index
-    @uses = User.all
+    @users = User.all
   end
 
   def show

@@ -6,5 +6,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
+    @contacts = @user.contact_managers
+    @call_histories = @user.call_histories
   end
 end

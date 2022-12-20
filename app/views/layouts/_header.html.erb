@@ -39,7 +39,7 @@
          <% elsif admin_signed_in? %><!--管理者-->
           <ul class="navbar-nav ml-auto">
             <li>
-              <%= link_to admin_users_sign_up_path,class: 'nav-link text-nowrap text-light' do %>
+              <%= link_to sign_up_admin_users_path,class: 'nav-link text-nowrap text-light' do %>
                 <p style="color:#e7e7e7;">新規ユーザー登録</p>
               <% end %>
             </li>
@@ -54,7 +54,7 @@
               <% end %>
             </li>
             <li>
-              <%=  link_to admin_call_histories,class: 'nav-link text-nowrap text-light' do %>
+              <%=  link_to admin_call_histories_path,class: 'nav-link text-nowrap text-light' do %>
                 <p style="color:#e7e7e7;">コール履歴一覧</p>
               <% end %>
             </li>
