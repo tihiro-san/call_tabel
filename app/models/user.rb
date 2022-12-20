@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
         
   has_many :contact_managers, dependent: :destroy
+  has_many :contacts, through: :contact_managers
   has_many :call_histories, dependent: :destroy
   
 end
