@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   
+  before_action :authenticate_admin!
   
   def index
     @users = User.all
@@ -12,7 +13,16 @@ class Admin::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-
+  
+  def update
+    @user = User.find(params[:id])
+     if @user.update(user_params)
+      redirect_to admin_user_path(@user)
+     else
+      render edit_admin_user_path(@user)
+     end
+  end
+  
   def new
     @user = User.new
   end
