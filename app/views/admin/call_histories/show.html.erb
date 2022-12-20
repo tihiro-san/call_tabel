@@ -1,2 +1,107 @@
-<h1>Admin::CallHistories#show</h1>
-<p>Find me in app/views/admin/call_histories/show.html.erb</p>
+<div class="container pb-5"></br>
+   <div class="col-12 mx-auto">
+     <h3>コール履歴詳細</h3>
+   </div>
+
+   </br>
+   </br>
+   <!--コール履歴を作成したユーザーを表示させたい-->
+    <div class="row">
+        <label class="col-sm-3">団体名</label>
+          <div class="col-sm-9">
+           <%= @contact.organization_name %>
+          </div>
+      </div>
+    
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">電話番号(ハイフンなし) </label>
+          <div class="col-sm-9">
+            <%= @contact.contact_number %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">郵便番号</label>
+          <div class="col-sm-9">
+            <%= @contact.contact_postcode %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">住所</label>
+          <div class="col-5">
+            <%= @contact.contact_address %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">担当者役職</label></label>
+          <div class="col-sm-9">
+            <%= @contact.counterparty_post %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">担当者名</label></label>
+          <div class="col-sm-9">
+            <%= @contact.counterparty_name %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">従業員数</label></label>
+          <div class="col-sm-9">
+            <%= @contact.employees %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row">
+        <label class="col-sm-3">WebsiteのURL</label></label>
+          <div class="col-sm-9">
+            <%= @contact.website %>
+          </div>
+      </div>
+      
+    </br>
+    
+      <div class="row my-5">
+        <label class="col-sm-3">備考</label></label>
+          <div class="col-sm-9">
+            <%= @contact.remarks %>
+          </div>
+      </div>
+      
+      <div class="row my-5">
+        <label class="col-sm-3">コール日時</label></label>
+          <div class="col-sm-9">
+            <%= @call_history.date_and_time %>
+          </div>
+      </div>
+      
+      <div class="row my-5">
+        <label class="col-sm-3">コール内容</label></label>
+          <div class="col-sm-9">
+            <%= @call_history.content %>
+          </div>
+      </div>
+      
+      <div class="row">
+       <div class="col-6 text-right mb-5">
+        <%= link_to 'コール履歴の編集', edit_admin_contact_call_history_path, class:"btn btn-sm btn-outline-danger" %>
+       </div>
+      </div>
+</div>
