@@ -18,10 +18,10 @@ class Admin::CallHistoriesController < ApplicationController
   def update
     @call_history = CallHistory.find(params[:id])
     @call_history.contact_id = params[:contact_id]
-    @call_history.user_id = current_user.id
+    
     if @call_history.update(call_history_params)
        flash[:notice] = "コール履歴が更新されました"
-       redirect_to contact_call_history_path(@call_history.contact_id, @call_history.id)
+       redirect_to admin_contact_call_history_path(@call_history.contact_id, @call_history.id)
     else
       flash[:notice] = "コール履歴を更新できませんでした"
        render 'edit'
@@ -41,7 +41,7 @@ class Admin::CallHistoriesController < ApplicationController
      @call_history.user_id = current_user.id
      if @call_history.save
        flash[:notice] = "コール履歴が登録されました"
-       redirect_to contact_call_history_path(@call_history.contact_id, @call_history.id)
+       redirect_to admin_contact_call_history_path(@call_history.contact_id, @call_history.id)
      else
        flash[:notice] = "コール履歴を登録できませんでした"
        render 'new'
