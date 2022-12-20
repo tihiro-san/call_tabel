@@ -18,7 +18,7 @@
           <tr>
             <td><%= contact.id %></td>
             <td>
-              <%= link_to "#{contact.organization_name}", contact_path(contact.id) %>
+              <%= link_to "#{contact.organization_name}", admin_contact_path(contact.id) %>
             </td>
             <td><%= contact.contact_number %></td>
 
