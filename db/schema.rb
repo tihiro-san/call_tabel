@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "valuatuons", force: :cascade do |t|
+  create_table "valuations", force: :cascade do |t|
     t.integer "grade", limit: 1, default: 0, null: false
     t.string "rank_content", null: false
     t.datetime "created_at", precision: 6, null: false

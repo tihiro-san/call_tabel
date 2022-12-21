@@ -4,6 +4,6 @@ class CallHistory < ApplicationRecord
   
   belongs_to :contact
   
-  belongs_to :valuatuon, optional: true
+  belongs_to :valuation, optional: true
 
 end
