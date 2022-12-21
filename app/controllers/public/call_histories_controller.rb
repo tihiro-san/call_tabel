@@ -1,7 +1,7 @@
 class Public::CallHistoriesController < ApplicationController
   def index
     @call_histories = CallHistory.all
-    
+
   end
 
   def show
@@ -14,7 +14,7 @@ class Public::CallHistoriesController < ApplicationController
     @contact = Contact.find(params[:contact_id])
     @call_history.contact_id = params[:contact_id]
   end
-  
+
   def update
     @call_history = CallHistory.find(params[:id])
     @call_history.contact_id = params[:contact_id]
@@ -27,7 +27,7 @@ class Public::CallHistoriesController < ApplicationController
        render 'edit'
     end
   end
-  
+
   def new
     @call_history = CallHistory.new
 
@@ -35,7 +35,7 @@ class Public::CallHistoriesController < ApplicationController
   end
 
   def create
-    
+
      @call_history = CallHistory.new(call_history_params)
      @call_history.contact_id = params[:contact_id]
      @call_history.user_id = current_user.id
@@ -50,6 +50,6 @@ class Public::CallHistoriesController < ApplicationController
 
   private
   def call_history_params
-    params.require(:call_history).permit(:content)
+    params.require(:call_history).permit(:content, :valuation_id)
   end
 end

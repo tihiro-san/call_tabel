@@ -27,13 +27,15 @@
         <thead>
           <tr>
             <th></th>
+            <th></th>
             <th>見込みランク</th>
           </tr>
         </thead>
         <tbody>
           <% @valuations.each do |valuation| %>
             <tr>
-              <td><%= valuation.name %></td>
+              <td><%= valuation.grade %></td>
+              <td><%= valuation.rank_content %></td>
               <td><%= link_to '編集する', edit_admin_valuation_path(valuation.id), class: "btn btn-sm btn-success" %></td>
             </tr>
           <% end %>
