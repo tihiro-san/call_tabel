@@ -16,6 +16,13 @@
     <!--フラッシュメッセージの表示-->
     <p class="notice text-center mt-3"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div class="notice text-center mt-3">
+       <%= form_with url: contacts_path, method: :get, local: true do |f| %>
+　　　　<%= f.text_field :q, placeholder: "検索ワードを入力", value: "" %>
+        <%= f.submit "検索" %>
+      <% end %>
+    </div>
+    
 
     <!--コンテンツ-->
     <%= yield %>

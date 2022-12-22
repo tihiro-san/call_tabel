@@ -4,12 +4,20 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    # flash[:notice] = "Welcome! You have signed up successfully."
+    
     root_path
   end
 
   def after_sign_out_path_for(resource)
      root_path
+  end
+  
+  before_action :set_search
+
+  def set_search
+    @query = { title_or_content_cont: params[:q] }
+    @search = Contact.ransack(params[:q])
+    @search_contacts = @search.result.order(created_at: :desc)#.page(params[:page])
   end
   
   protected

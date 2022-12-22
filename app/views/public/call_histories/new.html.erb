@@ -88,12 +88,17 @@
   <div class="row my-5">
   　<%= form_with model: @call_history, url: contact_call_histories_path, method: :post, local: true do |f| %>
   　<label class="col-6">見込みランク</label>
-    <div class="col-6">
-  　   <%= f.select :valuation_id, Valuation.all.map{|valuation| ["#{valuation.grade} : #{valuation.rank_content}", valuation.id]} %>
-  　</div>
+      <div class="col-6">
+    　   <%= f.select :valuation_id, Valuation.all.map{|valuation| ["#{valuation.grade} : #{valuation.rank_content}", valuation.id]} %>
+    　</div>
     <label class="col-6">コール内容</label>
       <div class="col-6">
         <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder:"", size:"90x5" %>
+      </div>
+      
+    <label class="col-6">コール内容</label>
+      <div class="col-6">
+        <%= f.datetime_field :date_and_time %>
       </div>
 
       <div class="text-right my-5" >

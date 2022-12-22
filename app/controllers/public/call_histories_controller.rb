@@ -50,6 +50,6 @@ class Public::CallHistoriesController < ApplicationController
 
   private
   def call_history_params
-    params.require(:call_history).permit(:content, :valuation_id)
+    params.require(:call_history).permit(:content, :date_and_time, :valuation_id)
   end
 end
