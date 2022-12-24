@@ -7,9 +7,9 @@
          </br>
       <div class="row">
         <div class="col-5">
-          
+
             <h4><strong>登録情報</strong></h4>
-          
+
           <div class="sm-3">
             <table class="table table-bordered">
               <thead>
@@ -50,9 +50,9 @@
         </div>
        </br>
       <div class="col-7">
-        
+
           <h4>連絡先 <%= link_to  "一覧をみる", contacts_path, class:"btn btn-outline-danger ml-5" %></h4>
-        
+
         </br>
         <table class="table shadow-lg mt-4">
           <thead class="table-active">
@@ -97,18 +97,18 @@
               <% @user.call_histories.each do |call_history| %>
                 <tbody>
                   <tr>
-                    <td><%= link_to "#{call_history.id}", admin_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+                    <td><%= link_to "#{call_history.id}", contact_call_history_path(call_history.contact.id, call_history.id) %></td>
                     <td>
-                      <%= link_to "#{call_history.contact.organization_name}", admin_contact_path(call_history.contact.id) %>
+                      <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
                     </td>
-                    <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", admin_user_path(call_history.user.id) %></td>
+                    <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
 
                     <td><%= call_history.date_and_time %></td>
                   </tr>
                 </tbody>
               <% end %>
             </table>
-          
+
         </div>
       </div>
     </div>

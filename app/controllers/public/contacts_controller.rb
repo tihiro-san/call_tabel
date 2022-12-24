@@ -2,6 +2,8 @@ class Public::ContactsController < ApplicationController
   
   def index
     @contacts = Contact.all
+    @q = Contact.ransack(params[:q])
+    @contacts = @q.result
   end
 
   def show
