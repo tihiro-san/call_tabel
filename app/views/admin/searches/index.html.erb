@@ -82,10 +82,10 @@
             </td>
             <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", admin_user_path(call_history.user.id) %></td>
 
-            <td><%= call_history.date_and_time %></td>
+            <td><%= call_history.date_and_time.strftime('%Y年%m月%d日 %H:%M') %></td>
           </tr>
         </tbody>
       <% end %>
-    </table> 
+    </table>
   </div>
 </div>

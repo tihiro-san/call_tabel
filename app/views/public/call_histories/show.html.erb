@@ -12,86 +12,86 @@
            <%= @contact.organization_name %>
           </div>
       </div>
-    
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">電話番号(ハイフンなし) </label>
           <div class="col-sm-9">
             <%= @contact.contact_number %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">郵便番号</label>
           <div class="col-sm-9">
             <%= @contact.contact_postcode %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">住所</label>
           <div class="col-5">
             <%= @contact.contact_address %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">担当者役職</label></label>
           <div class="col-sm-9">
             <%= @contact.counterparty_post %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">担当者名</label></label>
           <div class="col-sm-9">
             <%= @contact.counterparty_name %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">従業員数</label></label>
           <div class="col-sm-9">
             <%= @contact.employees %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row">
         <label class="col-sm-3">WebsiteのURL</label></label>
           <div class="col-sm-9">
             <%= @contact.website %>
           </div>
       </div>
-      
+
     </br>
-    
+
       <div class="row my-5">
         <label class="col-sm-3">備考</label></label>
           <div class="col-sm-9">
             <%= @contact.remarks %>
           </div>
       </div>
-      
+
       <div class="row my-5">
         <label class="col-sm-3">コール日時</label></label>
           <div class="col-sm-9">
             <%= @call_history.date_and_time.strftime('%Y年%m月%d日 %H:%M') %>
           </div>
       </div>
-      
+
       <div class="row my-5">
         <label class="col-sm-3">見込みランク</label></label>
           <div class="col-sm-9">
@@ -100,15 +100,18 @@
           </div>
 
       </div>
-    　<% if @call_history.user_id = current_user.id %>
       <div class="row my-5">
+        <% if @call_history.user_id = current_user.id %>
         <label class="col-sm-3">コール内容</label>
           <div class="col-sm-9">
             <%= @call_history.content %>
           </div>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
       </div>
-      <% end %>
-      
+
       <div class="row">
        <div class="col-6 text-right mb-5">
         <%= link_to 'コール履歴の編集', edit_contact_call_history_path, class:"btn btn-sm btn-outline-danger" %>
