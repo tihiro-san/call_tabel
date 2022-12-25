@@ -35,7 +35,7 @@ before_action :user_state, only: [:create]
   ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別  
     if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
       ## 【処理内容3】
-      redirect_to new_user_session_path, notice: "退会済みです"
+      redirect_to new_user_session_path, notice: "アカウントが無効です"
     end
   end 
   # If you have extra params to permit, append them to the sanitizer.

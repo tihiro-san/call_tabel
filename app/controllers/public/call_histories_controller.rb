@@ -1,4 +1,8 @@
 class Public::CallHistoriesController < ApplicationController
+
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
   def index
     @call_histories = CallHistory.all
 
@@ -51,5 +55,10 @@ class Public::CallHistoriesController < ApplicationController
   private
   def call_history_params
     params.require(:call_history).permit(:content, :date_and_time, :valuation_id)
+  end
+  def ensure_correct_user
+   @call_history = CallHistory.find(params[:id])
+   return if @call_history.user_id == current_user.id
+   redirect_to call_histories_path
   end
 end

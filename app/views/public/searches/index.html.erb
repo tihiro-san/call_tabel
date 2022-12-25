@@ -1,0 +1,91 @@
+<div class="row pb-5">
+  <div class="col-8 mx-auto">
+    <h4><strong>連絡先一覧</strong></h4>
+  <div class ="col-md-9 text-right">
+      <%= link_to "+", new_contact_path, class: "btn btn-outline-dark rounded-circle" %>
+  </div>
+    <table class="table shadow-lg mt-4">
+        <thead class="table-active">
+          <tr>
+            <th>連絡先ID</th>
+            <th>団体名</th>
+            <th>電話番号</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+      <% @search_contacts.each do |contact| %>
+        <tbody>
+          <tr>
+            <td><%= contact.id %></td>
+            <td>
+              <%= link_to "#{contact.organization_name}", contact_path(contact.id) %>
+            </td>
+            <td><%= contact.contact_number %></td>
+
+          <% if contact.contact_status == true %>
+            <td class="text-secondary font-weight-bold">無効</td>
+          <% else %>
+            <td class="text-success font-weight-bold">有効</td>
+          <% end %>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+
+    <h4><strong>ユーザ一覧</strong></h4>
+    <table class="table shadow-lg mt-4">
+        <thead class="table-active">
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>所属</th>
+            <th>役職</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+      <% @search_users.each do |user| %>
+        <tbody>
+          <tr>
+            <td><%= user.id %></td>
+            <td>
+              <%= link_to "#{user.last_name}#{user.first_name}", user_path(user.id) %>
+            </td>
+            <td><%= user.department %></td>
+            <td><%= user.post %></td>
+
+          <% if user.is_deleted == true %>
+            <td class="text-secondary font-weight-bold">無効</td>
+          <% else %>
+            <td class="text-success font-weight-bold">有効</td>
+          <% end %>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+    <h4><strong>コール履歴一覧</strong></h4>
+
+    <table class="table shadow-lg mt-4 my-5">
+        <thead class="table-active">
+          <tr>
+            <th>コール履歴ID</th>
+            <th>団体名</th>
+            <th>ユーザー名</th>
+            <th>日時</th>
+          </tr>
+        </thead>
+      <% @search_call_histories.each do |call_history| %>
+        <tbody>
+          <tr>
+            <td><%= link_to "#{call_history.id}", contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+            <td>
+              <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
+            </td>
+            <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
+
+            <td><%= call_history.date_and_time %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table> 
+  </div>
+</div>

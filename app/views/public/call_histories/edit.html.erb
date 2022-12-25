@@ -1,4 +1,5 @@
-<div class="container pb-5"></br>
+<div class="container pb-5">
+</br>
   <div class="col-12 mx-auto">
     <h3>コール履歴編集</h3>
   </div>
@@ -84,7 +85,8 @@
         <%= @contact.remarks %>
       </div>
   </div>
-  
+</div>
+ <div class="container pb-5">
   <div class="row my-5">
    <%= form_with model: @call_history, url: contact_call_history_path(@call_history.contact_id, @call_history.id), method: :patch do |f| %>
    
@@ -94,13 +96,14 @@
       <div class="col-6">
         <%= f.text_area :content, autofocus: true, autocomplete: "content", placeholder:"", size:"90x5" %>
       </div>
-      
-      <div class="text-right my-5" >
-        <%= f.submit "編集を保存", class: "btn btn-sm btn-outline-danger" %>
-      </div>
+
+        <div class="text-right my-5" >
+          <%= f.submit "編集を保存", class: "btn btn-sm btn-outline-danger" %>
+        </div>
+        <div class="text-center my-5" >
+          <%= link_to "消去する", contact_call_history_path(@call_history), method: :delete, class: "btn btn-danger ml-3" , "data-confirm" => "本当に削除しますか？" %>
+        </div>
+
     <% end %>  
   </div>
-  
-    
- 
-</div>
+ </div> 

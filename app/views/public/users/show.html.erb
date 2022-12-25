@@ -72,11 +72,11 @@
                 </td>
                 <td><%= contact.contact_number %></td>
 
-              <!--<%# if contact.is_deleted == true %>-->
-              <!--  <td class="text-secondary font-weight-bold">無効</td>-->
-              <!--<%# else %>-->
-              <!--  <td class="text-success font-weight-bold">有効</td>-->
-              <!--<%# end %>-->
+              <% if contact.contact_status == true %>
+                <td class="text-secondary font-weight-bold">無効</td>
+              <% else %>
+                <td class="text-success font-weight-bold">有効</td>
+              <% end %>
               </tr>
             </tbody>
           <% end %>
@@ -103,7 +103,7 @@
                     </td>
                     <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
 
-                    <td><%= call_history.date_and_time %></td>
+                    <td><%= call_history.date_and_time.strftime('%Y年%m月%d日 %H:%M') %></td>
                   </tr>
                 </tbody>
               <% end %>

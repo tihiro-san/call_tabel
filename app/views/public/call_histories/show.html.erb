@@ -100,13 +100,14 @@
           </div>
 
       </div>
-      
+    　<% if @call_history.user_id = current_user.id %>
       <div class="row my-5">
-        <label class="col-sm-3">コール内容</label></label>
+        <label class="col-sm-3">コール内容</label>
           <div class="col-sm-9">
             <%= @call_history.content %>
           </div>
       </div>
+      <% end %>
       
       <div class="row">
        <div class="col-6 text-right mb-5">

@@ -9,11 +9,10 @@ Rails.application.routes.draw do
     get 'user/index'
     get 'user/show'
   end
-  
+
   get 'contact_managers/create'
   root to: "public/homes#top"
   get 'about'=>'public/homes#about'
-  get 'searches/set_search' => 'searches#set_search', as:'search'
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admins, controllers: {
@@ -28,9 +27,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # ユーザー
   scope module: :public do
+    get 'searches/set_search' => 'searches#set_search', as:'search'
     resources :users, only: [:index, :show]
     resources :contacts, only: [:index, :show, :edit, :update, :new, :create] do
-     resources :call_histories, only: [:new, :create, :show, :edit, :update]
+     resources :call_histories, only: [:new, :create, :show, :edit, :update, :destroy]
     end
     resources :call_histories, only: [:index]
     resources :contact_managers, only: [:create]
@@ -38,18 +38,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'homes#top'
+    get 'searches/set_search' => 'searches#set_search', as:'search'
     resources :contacts do
       resources :call_histories, only: [:show, :edit, :update]
     end
     resources :contact_managers, only: [:create]
-    resources :valuations, only: [:index, :create, :edit, :update]
+    resources :valuations, only: [:index, :create, :edit, :update, :destroy]
     resources :call_histories, only: [:index]
     resources :users, only: [:index, :show, :edit, :create, :update, :new] do
       collection do
         get :sign_up, action: :new
       end
-    end  #管理者側のみでユーザーの登録を行いたいため修正予定
-    #get "users/sign_up" => "users#new"
+    end
   end
 
 end

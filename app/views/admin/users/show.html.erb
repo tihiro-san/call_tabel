@@ -1,75 +1,135 @@
-   <div class="container pb-5">
+  <div class="container pb-5">
       <div class="col-11 mx-auto">
-         <h3><strong><%= @user.last_name %> <%= @user.first_name %>さんの登録情報</strong></h3>
-       </div>
+        <h3><strong><%= @user.last_name %> <%= @user.first_name %>さんの登録情報</strong></h3>
+      </div>
 
          </br>
          </br>
 
-     <div class="row"></div>
-        <div class="col-11">
+  <div class="row">
+   <div class="col-5">
           <h4><strong>登録情報</strong></h4>
-        </div>
 
 
 
-    <div class="col-7 sm-3">
+    <div class="sm-3">
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>氏名</th>
+            <th class="table-active">氏名</th>
             <th><%= @user.last_name %><%= @user.first_name %></th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <th>カナ</th>
+            <th class="table-active">カナ</th>
             <th><%= @user.last_name_kana %><%= @user.first_name_kana %></th>
           </tr>
 
           <tr>
-            <th>所属</th>
+            <th class="table-active">所属</th>
             <th><%= @user.department %></th>
           </tr>
 
           <tr>
-            <th>役職</th>
+            <th class="table-active">役職</th>
             <th><%= @user.post %></th>
           </tr>
 
           <tr>
-            <th>電話番号</th>
+            <th class="table-active">電話番号</th>
             <th><%= @user.phone_number %></th>
           </tr>
 
           <tr>
-            <th>メールアドレス</th>
+            <th class="table-active">メールアドレス</th>
             <th><%= @user.email %></th>
           </tr>
+          
+          <tr>
+          <th class="table-active">ユーザーステータス</th>
+            <% if @user.is_deleted == true %>
+              <td class="text-secondary font-weight-bold">無効</td>
+            <% else %>
+              <td class="text-success font-weight-bold">有効</td>
+            <% end %>
+            </tr>
         </tbody>
      </table>
+     　 <div class="row justify-content-center">
+        <p class="text-center">
+          <%= link_to "編集する", edit_admin_user_path(@user.id), class: 'btn btn-outline-success m-3' %>
+        </p>
+       </div>
     </div>
-       </br>
-
-
-
-     <div class="row"></div>
-        <div class="col-11">
-          <h4>連絡先 <%= link_to  "一覧をみる", admin_contacts_path, class:"btn btn-outline-danger ml-5" %></h4>
+   </div>
+   </br>
+  <div class="col-7">
+  
+            <h4>連絡先 <%= link_to  "一覧をみる", contacts_path, class:"btn btn-outline-danger ml-5" %></h4>
+  
+          </br>
+          <table class="table shadow-lg mt-4">
+            <thead class="table-active">
+              <tr>
+                <th>連絡先ID</th>
+                <th>団体名</th>
+                <th>電話番号</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <% @user.contacts.each do |contact| %>
+              <tbody>
+                <tr>
+                  <td><%= contact.id %></td>
+                  <td>
+                    <%= link_to "#{contact.organization_name}", contact_path(contact.id) %>
+                  </td>
+                  <td><%= contact.contact_number %></td>
+  
+                <% if contact.contact_status == true %>
+                  <td class="text-secondary font-weight-bold">無効</td>
+                <% else %>
+                  <td class="text-success font-weight-bold">有効</td>
+                <% end %>
+                </tr>
+              </tbody>
+            <% end %>
+          </table>
+          <div class="col-11">
+            <h4>コール履歴<%= link_to  "コール履歴一覧", call_histories_path, class:"btn btn-outline-danger ml-4" %></h4>
+          </div>
+          </br>
+              <table class="table shadow-lg mt-4">
+                  <thead class="table-active">
+                    <tr>
+                      <th>コール履歴ID</th>
+                      <th>団体名</th>
+                      <th>ユーザー名</th>
+                      <th>日時</th>
+                    </tr>
+                  </thead>
+                <% @user.call_histories.each do |call_history| %>
+                  <tbody>
+                    <tr>
+                      <td><%= link_to "#{call_history.id}", contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+                      <td>
+                        <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
+                      </td>
+                      <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
+  
+                      <td><%= call_history.date_and_time.strftime('%Y年%m月%d日 %H:%M') %></td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
+  
+          </div>
         </div>
-        </br>
-     <div class="row">
-        <div class="col-11">
-          <h4>コール履歴<%= link_to  "コール履歴一覧", admin_call_histories_path, class:"btn btn-outline-danger ml-4" %></h4>
-           <div class="col-11 text-right">
-            <%= link_to  "登録情報の編集", edit_admin_user_path, class:"btn btn-outline-danger ml-4" %>
-           </div>
-        </div>
-     </div>
+      </div>
+  
+      </br>
+      </br>
     </div>
 
-    </br>
-    </br>
-
-  </div>

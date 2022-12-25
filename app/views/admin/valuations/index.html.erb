@@ -5,13 +5,12 @@
   <div class="mt-5">
     <%= form_with model: @valuation, url: admin_valuations_path, local: true do |f| %>
     <div class ="row">
-      <td><h5 class="font-weight-bold">ランク</h5></td>
+      <td><h5 class="font-weight-bold">ランク　</h5></td>
           <td>
             <%= form_with model: @valuation,url: admin_valuations_path, method: :post do |f| %>
               <%= f.select :grade, Valuation.grades.keys.map{|k| [I18n.t("enums.valuation.grade.#{k}"), k]} %>
-              <%= f.submit "更新",class:"btn btn-outline-success" %>
             <% end %>
-      <div class="font-weight-bold">ランク内容</div>
+      <div class="font-weight-bold">　ランク内容</div>
         <div class="col-md-3">
           <%= f.text_field :rank_content, autocomplete: "rank_content", class:"form form-control form-inline",placeholder: 'ランク内容' %>
         </div>
@@ -22,13 +21,13 @@
     <% end %>
   </div>
   <div class ="row mt-5">
-    <div class="col-md-5">
-      <table class="table">
-        <thead>
+
+      <table class="table shadow-lg mt-4 my-5">
+        <thead class="table-active">
           <tr>
-            <th></th>
-            <th></th>
             <th>見込みランク</th>
+            <th>ランク内容</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>

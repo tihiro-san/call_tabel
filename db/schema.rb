@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2022_12_12_165925) do
     t.string "contact_number", null: false
     t.string "contact_postcode"
     t.string "contact_address"
-    t.integer "contact_status", limit: 1, default: 0, null: false
+    t.boolean "contact_status", default: true, null: false
     t.string "counterparty_post"
     t.string "counterparty_name"
     t.integer "employees"

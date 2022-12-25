@@ -27,6 +27,12 @@ class Admin::ValuationsController < ApplicationController
     end
   end
   
+  def destroy
+    @valuation = Valuation.find(params[:id])
+    @valuation.destroy
+    redirect_to admin_valuations_path
+  end
+  
   private
   def valuation_params
     params.require(:valuation).permit(:grade, :rank_content)
