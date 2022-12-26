@@ -101,7 +101,7 @@
           <%= f.submit "編集を保存", class: "btn btn-sm btn-outline-danger" %>
         </div>
         <div class="text-center my-5" >
-          <%= link_to "消去する", contact_call_history_path(@call_history), method: :delete, class: "btn btn-danger ml-3" , "data-confirm" => "本当に削除しますか？" %>
+          <%= link_to "消去する", contact_call_history_path(@call_history.contact_id, @call_history), method: :delete, class: "btn btn-danger ml-3" , "data-confirm" => "本当に削除しますか？" %>
         </div>
 
     <% end %>  
