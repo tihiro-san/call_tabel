@@ -1,7 +1,7 @@
 class Public::ContactsController < ApplicationController
-  
+
   before_action :authenticate_user!
-  
+
   def index
     @contacts = Contact.all
     @q = Contact.ransack(params[:q])
@@ -41,6 +41,6 @@ class Public::ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:organization_name, :contact_number, :contact_postcode, :contact_address, :contact_status, :counterparty_post, :counterparty_name, :employees, :website, :remarks)
+    params.require(:contact).permit(:organization_name, :contact_number, :contact_postcode, :contact_address, :status, :counterparty_post, :counterparty_name, :employees, :website, :remarks)
   end
 end

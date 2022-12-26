@@ -6,7 +6,7 @@ class CreateContacts < ActiveRecord::Migration[6.1]
       t.string :contact_number,null: false
       t.string :contact_postcode
       t.string :contact_address
-      t.boolean :contact_status,null: false,default: true
+      t.boolean :status, null: false, default: true
       t.string :counterparty_post
       t.string :counterparty_name
       t.integer :employees
