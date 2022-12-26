@@ -46,7 +46,7 @@
             <th class="table-active">メールアドレス</th>
             <th><%= @user.email %></th>
           </tr>
-          
+
           <tr>
           <th class="table-active">ユーザーステータス</th>
             <% if @user.is_deleted == true %>
@@ -66,9 +66,9 @@
    </div>
    </br>
   <div class="col-7">
-  
-            <h4>連絡先 <%= link_to  "一覧をみる", contacts_path, class:"btn btn-outline-danger ml-5" %></h4>
-  
+
+            <h4>登録した連絡先 <%= link_to  "一覧をみる", admin_contacts_path, class:"btn btn-outline-danger ml-5" %></h4>
+
           </br>
           <table class="table shadow-lg mt-4">
             <thead class="table-active">
@@ -84,10 +84,10 @@
                 <tr>
                   <td><%= contact.id %></td>
                   <td>
-                    <%= link_to "#{contact.organization_name}", contact_path(contact.id) %>
+                    <%= link_to "#{contact.organization_name}", admin_contact_path(contact.id) %>
                   </td>
                   <td><%= contact.contact_number %></td>
-  
+
                 <% if contact.contact_status == true %>
                   <td class="text-secondary font-weight-bold">無効</td>
                 <% else %>
@@ -98,7 +98,7 @@
             <% end %>
           </table>
           <div class="col-11">
-            <h4>コール履歴<%= link_to  "コール履歴一覧", call_histories_path, class:"btn btn-outline-danger ml-4" %></h4>
+            <h4>コール履歴 <%= link_to  "一覧をみる", admin_call_histories_index_path, class:"btn btn-outline-danger ml-4" %></h4>
           </div>
           </br>
               <table class="table shadow-lg mt-4">
@@ -113,22 +113,22 @@
                 <% @user.call_histories.each do |call_history| %>
                   <tbody>
                     <tr>
-                      <td><%= link_to "#{call_history.id}", contact_call_history_path(call_history.contact.id, call_history.id) %></td>
+                      <td><%= link_to "#{call_history.id}", admin_contact_call_history_path(call_history.contact.id, call_history.id) %></td>
                       <td>
-                        <%= link_to "#{call_history.contact.organization_name}", contact_path(call_history.contact.id) %>
+                        <%= link_to "#{call_history.contact.organization_name}", admin_contact_path(call_history.contact.id) %>
                       </td>
-                      <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", user_path(call_history.user.id) %></td>
-  
+                      <td><%= link_to "#{call_history.user.last_name}#{call_history.user.first_name}", admin_user_path(call_history.user.id) %></td>
+
                       <td><%= call_history.date_and_time.strftime('%Y年%m月%d日 %H:%M') %></td>
                     </tr>
                   </tbody>
                 <% end %>
               </table>
-  
+
           </div>
         </div>
       </div>
-  
+
       </br>
       </br>
     </div>

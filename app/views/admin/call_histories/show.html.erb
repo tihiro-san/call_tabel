@@ -95,7 +95,8 @@
       <div class="row my-5">
         <label class="col-sm-3">見込みランク</label></label>
           <div class="col-sm-9">
-            <%= @call_history.valuation_id %>
+            <%= @call_history.valuation.grade %>
+             <%= @call_history.valuation.rank_content %>
           </div>
       </div>
 
