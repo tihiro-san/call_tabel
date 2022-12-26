@@ -82,10 +82,10 @@
     <tr>
       <th></th>
       <label>
-        <!--<td><%#= f.radio_button :contact_status, :false %><%= f.label :contact_status_false,"有効" %>-->
-        <!--</td>-->
-        <!--<td><%#= f.radio_button :contact_status, :true %><%= f.label :contact_status_true,"無効" %>-->
-        <!--</td>-->
+        <td><%= f.radio_button :status, :already_exist %><%= f.label :status_false,"有効" %>
+        </td>
+        <td><%= f.radio_button :status, :not_yet %><%= f.label :status_true,"無効" %>
+        </td>
       </label>
     </tr>
   </div>

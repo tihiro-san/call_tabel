@@ -79,22 +79,22 @@
                 <th>ステータス</th>
               </tr>
             </thead>
-            <% @user.contacts.each do |contact| %>
-              <tbody>
-                <tr>
-                  <td><%= contact.id %></td>
-                  <td>
-                    <%= link_to "#{contact.organization_name}", admin_contact_path(contact.id) %>
-                  </td>
-                  <td><%= contact.contact_number %></td>
-
-                <% if contact.contact_status == true %>
-                  <td class="text-secondary font-weight-bold">無効</td>
-                <% else %>
-                  <td class="text-success font-weight-bold">有効</td>
-                <% end %>
-                </tr>
-              </tbody>
+            <% if @user.contacts.any? %>
+              <% @user.contacts.each do |contact| %>
+                <tbody>
+                  <tr>
+                    <td><%= contact.id %></td>
+                    <td>
+                      <%= link_to "#{contact.organization_name}", admin_contact_path(contact.id) %>
+                    </td>
+                    <td><%= contact.contact_number %></td>
+  
+                    <td class="col-sm-9 text-<%= contact.status == "already_exist" ? "success" : "secondary" %> font-weight-bold">
+                      <%= contact.status_i18n %>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
             <% end %>
           </table>
           <div class="col-11">
