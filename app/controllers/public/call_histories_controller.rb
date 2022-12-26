@@ -51,6 +51,11 @@ class Public::CallHistoriesController < ApplicationController
        render 'new'
      end
   end
+  
+  def destroy
+    @call_history.destroy if @call_history
+    redirect_to call_histories_path
+  end
 
   private
   def call_history_params
