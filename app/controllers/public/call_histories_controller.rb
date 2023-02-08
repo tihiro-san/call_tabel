@@ -41,6 +41,10 @@ class Public::CallHistoriesController < ApplicationController
   def create
 
      @call_history = CallHistory.new(call_history_params)
+    # @call_history.valid?
+    # @call_history.errors
+    # =>{:content=>["内容を入力してください"], :date_and_time=>["日時を入力してください"]}
+
      @call_history.contact_id = params[:contact_id]
      @call_history.user_id = current_user.id
      if @call_history.save
@@ -48,6 +52,7 @@ class Public::CallHistoriesController < ApplicationController
        redirect_to contact_call_history_path(@call_history.contact_id, @call_history.id)
      else
        flash[:notice] = "コール履歴を登録できませんでした"
+       @contact = Contact.find(params[:contact_id])
        render 'new'
      end
   end
