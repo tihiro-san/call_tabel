@@ -88,8 +88,8 @@
       <div class="row my-5">
         <label class="col-sm-3">ステータス</label>
          <div class="col-sm-9">
-            <div class="col-sm-9 text-<%= contact.status == "already_exist" ? "success" : "secondary" %> font-weight-bold">
-              <%= contact.status_i18n %>
+            <div class="col-sm-9 text-<%= @contact.status == "already_exist" ? "success" : "secondary" %> font-weight-bold">
+              <%= @contact.status_i18n %>
             </div>
          </div>
       </div>
